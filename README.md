@@ -1,79 +1,107 @@
-public class Cliente {
+public class Clientes {
     private String nome;
     private String cpf;
+    private String telefone;
 
-    // Construtor
-    public Cliente(String nome, String cpf) {
+    public Clientes(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
+        this.telefone = telefone;
     }
 
-    // Métodos getters
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    // Método para exibir informações do cliente
-    public void exibirInformacoes() {
-        System.out.println("Nome do Cliente: " + nome);
-        System.out.println("CPF do Cliente: " + cpf);
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    
+    public String toString() {
+        return "Cliente [Nome: " + nome + ", CPF: " + cpf + 
+      "Telefone: " + telefone + "]";
     }
 }
-import java.util.ArrayList;
-import java.util.List;
-
-public class Profissional {
+public class Tecnico {
     private String nome;
-    private List<Cliente> clientesAtendidos;
+    private String telefone;
 
-    // Construtor
-    public Profissional(String nome) {
+    public Tecnico (String nome, String telefone) {
         this.nome = nome;
-        this.clientesAtendidos = new ArrayList<>();
+        this.telefone = telefone;
     }
 
-    // Métodos getters
     public String getNome() {
         return nome;
     }
 
-    public List<Cliente> getClientesAtendidos() {
-        return clientesAtendidos;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    // Método para adicionar cliente
-    public void adicionarCliente(Cliente cliente) {
-        clientesAtendidos.add(cliente);
+    public String getTelefone() {
+        return telefone;
     }
 
-    // Método para exibir clientes atendidos
-    public void exibirClientesAtendidos() {
-        System.out.println("Profissional: " + nome);
-        System.out.println("Clientes atendidos:");
-        for (Cliente cliente : clientesAtendidos) {
-            cliente.exibirInformacoes();
-            System.out.println("----------------------");
-        }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String toString() {
+        return "Tecnico [Nome: " + nome + ", Telefone: " + telefone+ "]";
+    }
+}
+public class Servico {
+    private String tipoServico;
+
+    public Servico(String tipoServico) {
+        this.tipoServico = tipoServico;
+    }
+
+    public String getTipoServico() {
+        return tipoServico;
+    }
+
+    public void setTipoServico(String tipoServico) {
+        this.tipoServico = tipoServico;
+    }
+
+    
+    public String toString() {
+        return "Serviço [Tipo de Serviço: " + tipoServico + "]";
     }
 }
 public class Main {
     public static void main(String[] args) {
-        // Criando alguns clientes
-        Cliente cliente1 = new Cliente("João Silva", "123.456.789-00");
-        Cliente cliente2 = new Cliente("Maria Oliveira", "987.654.321-00");
+        
+        Clientes cliente = new Clientes("Maria", "123.456.789-00", 
+        " (21) 91234-5678");
+        Tecnico tecnico = new Tecnico("Rosa",
+        "(21) 99302-3596");
+        Servico servico = new Servico("Depilação");
 
-        // Criando um profissional
-        Profissional profissional = new Profissional("Dr. Pedro");
-
-        // Adicionando clientes ao profissional
-        profissional.adicionarCliente(cliente1);
-        profissional.adicionarCliente(cliente2);
-
-        // Exibindo informações
-        profissional.exibirClientesAtendidos();
+        
+        System.out.println(cliente);
+        System.out.println(tecnico);
+        System.out.println(servico);
     }
 }
+
+      
