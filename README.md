@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 class Clientes {
     private String nome;
     private String cpf;
@@ -89,16 +92,75 @@ class Servico {
     }
 }
 
+class Agendamento {
+    private Clientes cliente;
+    private Tecnico tecnico;
+    private Servico servico;
+    private LocalDateTime dataHora;
+
+    public Agendamento(Clientes cliente, Tecnico tecnico, Servico servico, LocalDateTime dataHora) {
+        this.cliente = cliente;
+        this.tecnico = tecnico;
+        this.servico = servico;
+        this.dataHora = dataHora;
+    }
+
+    public Clientes getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clientes cliente) {
+        this.cliente = cliente;
+    }
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return "Agendamento:\n" +
+                "  Cliente: " + cliente.getNome() + "\n" +
+                "  Técnico: " + tecnico.getNome() + "\n" +
+                "  Serviço: " + servico.getTipoServico() + "\n" +
+                "  Data e Hora: " + dataHora.format(formatter);
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
         Clientes cliente = new Clientes("Maria", "123.456.789-00", "(21) 91234-5678");
         Tecnico tecnico = new Tecnico("Rosa", "(21) 99302-3596");
         Servico servico = new Servico("Depilação");
 
+        // Criação do agendamento
+        LocalDateTime dataHora = LocalDateTime.of(2024, 11, 30, 14, 30);
+        Agendamento agendamento = new Agendamento(cliente, tecnico, servico, dataHora);
+
+        // Impressão dos detalhes
         System.out.println(cliente);
         System.out.println(tecnico);
         System.out.println(servico);
+        System.out.println(agendamento);
     }
 }
-
-
