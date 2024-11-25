@@ -1,4 +1,4 @@
-public class Clientes {
+class Clientes {
     private String nome;
     private String cpf;
     private String telefone;
@@ -33,17 +33,17 @@ public class Clientes {
         this.telefone = telefone;
     }
 
-    
     public String toString() {
         return "Cliente [Nome: " + nome + ", CPF: " + cpf + 
-      "Telefone: " + telefone + "]";
+                ", Telefone: " + telefone + "]";
     }
 }
-public class Tecnico {
+
+class Tecnico {
     private String nome;
     private String telefone;
 
-    public Tecnico (String nome, String telefone) {
+    public Tecnico(String nome, String telefone) {
         this.nome = nome;
         this.telefone = telefone;
     }
@@ -65,10 +65,11 @@ public class Tecnico {
     }
 
     public String toString() {
-        return "Tecnico [Nome: " + nome + ", Telefone: " + telefone+ "]";
+        return "Tecnico [Nome: " + nome + ", Telefone: " + telefone + "]";
     }
 }
-public class Servico {
+
+class Servico {
     private String tipoServico;
 
     public Servico(String tipoServico) {
@@ -83,25 +84,21 @@ public class Servico {
         this.tipoServico = tipoServico;
     }
 
-    
     public String toString() {
         return "Serviço [Tipo de Serviço: " + tipoServico + "]";
     }
 }
+
 public class Main {
     public static void main(String[] args) {
-        
-        Clientes cliente = new Clientes("Maria", "123.456.789-00", 
-        " (21) 91234-5678");
-        Tecnico tecnico = new Tecnico("Rosa",
-        "(21) 99302-3596");
+        Clientes cliente = new Clientes("Maria", "123.456.789-00", "(21) 91234-5678");
+        Tecnico tecnico = new Tecnico("Rosa", "(21) 99302-3596");
         Servico servico = new Servico("Depilação");
 
-        
         System.out.println(cliente);
         System.out.println(tecnico);
         System.out.println(servico);
     }
 }
 
-      
+
