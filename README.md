@@ -153,11 +153,11 @@ public class Main {
         Tecnico tecnico = new Tecnico("Rosa", "(21) 99302-3596");
         Servico servico = new Servico("Depilação");
 
-        // Criação do agendamento
+       
         LocalDateTime dataHora = LocalDateTime.of(2024, 11, 30, 14, 30);
         Agendamento agendamento = new Agendamento(cliente, tecnico, servico, dataHora);
 
-        // Impressão dos detalhes
+        
         System.out.println(cliente);
         System.out.println(tecnico);
         System.out.println(servico);
